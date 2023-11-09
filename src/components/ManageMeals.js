@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './ManageMeals.css';
 
 const api = axios.create({
   baseURL: 'http://localhost:5000',
