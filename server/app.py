@@ -94,7 +94,7 @@ def login():
             "role": user.role  # Include the user's role in the response
         }, app.config['SECRET_KEY'])
         return jsonify({
-            "access-token": token,  # Change "access token" to "access_token"
+            "access_token": token,  # Change "access token" to "access_token"
             "message": "Logged in successfully",
             "role": user.role  # Include the user's role in the response
         })

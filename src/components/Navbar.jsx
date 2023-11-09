@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import { logoutUser } from '../redux/actions/authActions.js'; // Ensure you've implemented the logout action
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { logoutUser } from "../redux/actions/authActions.js"; // Ensure you've implemented the logout action
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const Navbar = () => {
   const onLogoutClick = (e) => {
     e.preventDefault();
     dispatch(logoutUser());
-    history.push('/login');
+    history.push("/login");
   };
 
   // Links displayed when user is authenticated
@@ -41,11 +41,20 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div>
-        <Link to="/">
-          <strong>Mealy</strong>
-        </Link>
-        {isAuthenticated && user.role === 'admin' ? adminLinks : (isAuthenticated ? authLinks : null)}
+      <div className="flex">
+        <Link to="/">Home</Link>
+
+        <Link to="/menu">Menu</Link>
+
+        <Link to="/how-it-works">How it Works</Link>
+
+        <Link to="/contact">Contact Us</Link>
+
+        {isAuthenticated && user.role === "admin"
+          ? adminLinks
+          : isAuthenticated
+          ? authLinks
+          : null}
       </div>
     </nav>
   );
